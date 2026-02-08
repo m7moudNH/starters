@@ -1,0 +1,32 @@
+.box{
+    height: auto;
+    margin: auto 0;
+    margin-top: 3rem;
+}
+.lowerPart{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 3fr);
+    gap: 3rem;
+    padding: 3rem 5rem;
+}
+
+.lowerPart .item{
+    border: 3px white dotted;
+    border-radius: 50px;
+    top:auto;
+    margin: 0 auto;
+
+}
+
+.lowerPart .item .img img{
+    max-width: 15rem;
+    height: auto;
+}
+
+.lowerPart .item .name{
+    text-align: center;
+    font-weight: 200;
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
