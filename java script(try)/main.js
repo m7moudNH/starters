@@ -1,13 +1,38 @@
-function getCount(str) {
-  let count = 0;
-  const vowels = ["a", "e", "i", "o", "u"];
-  str = str.split('');
-  for(let i=0 ; i<str.length; i++){
-    if(vowels.includes(str[i])) count++;
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} l1
+ * @param {ListNode} l2
+ * @return {ListNode}
+ */
+var addTwoNumbers = function (l1, l2) {
+  let dummy = new ListNode(0);
+  let current = dummy;
+  let carry = 0;
+
+  while (l1 || l2 || carry) {
+    let sum = carry;
+
+    if (l1) {
+      sum += l1.val;
+      l1 = l1.next;
+    }
+
+    if (l2) {
+      sum += l2.val;
+      l2 = l2.next;
+    }
+
+    carry = Math.floor(sum / 10);
+
+    current.next = new ListNode(sum % 10);
+    current = current.next;
   }
-  return count;
 
-  // return (str.match(/[aeiou]/ig) || []).length; //count of matching strings i -> case insensitive . g -> globally(find all matches) .
-  // tis function either return a char arr or null so to prevent null we use || [] so it returns an empty array if not found then we use .lenght to get the count
-
-}
+  return dummy.next;
+};
